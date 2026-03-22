@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lucky Roulette</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header-top">
+            <h1>Lucky Roulette</h1>
+            <div class="header-controls">
+                <button id="theme-toggle" class="header-btn" title="Toggle Dark/Light Mode">🌙</button>
+                <button id="sound-toggle" class="header-btn" title="Toggle Sound">🔊</button>
+                <button id="settings-btn" class="header-btn" title="Settings">⚙️</button>
+            </div>
+        </div>
+
+        <!-- Settings Modal -->
+        <div id="settings-modal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>Settings</h2>
+                <div class="settings-group">
+                    <label>Difficulty Level:</label>
+                    <select id="difficulty-select">
+                        <option value="easy">Easy (1.5x odds, $500 start)</option>
+                        <option value="normal" selected>Normal (Standard odds, $100 start)</option>
+                        <option value="hard">Hard (0.75x odds, $50 start)</option>
+                    </select>
+                </div>
+                <div class="settings-group">
+                    <label>Spin Speed:</label>
+                    <input type="range" id="spin-speed" min="1" max="5" value="3" step="1">
+                    <span id="speed-label">Normal</span>
+                </div>
+                <button id="reset-btn" class="settings-btn">Reset Stats</button>
+                <button id="export-btn" class="settings-btn">Export Stats</button>
+            </div>
+        </div>
+
+        <div class="game-area">
+            <div class="left-panel">
+                <div class="tier-info">
+                    <h3>🏆 Tier: <span id="current-tier">Novice</span></h3>
+                    <div class="tier-progress">
+                        <div id="tier-bar" class="tier-progress-bar"></div>
+                    </div>
+                </div>
+
+                <div class="achievements-section">
+                    <h3>🎖️ Achievements</h3>
+                    <div id="achievements" class="achievements-grid"></div>
+                </div>
+
+                <div class="session-goal-section">
+                    <h3>🎯 Session Goal</h3>
+                    <div id="session-goal" class="session-goal-card"></div>
+                </div>
+            </div>
+
+            <div class="center-panel">
+                <div class="wheel-container">
+                    <div class="indicator"></div>
+                    <div class="wheel" id="wheel">
+                        <div class="wheel-center"></div>
+                    </div>
+                </div>
+
+                <div class="controls">
+                    <div class="balance">
+                        <h3>Balance: $<span id="balance">100</span></h3>
+                    </div>
+
+                    <div class="betting">
+                        <h3>Place Your Bet</h3>
+                        <div class="bet-options">
+                            <button class="bet-btn" data-color="red" data-multiplier="2">Red (2x)</button>
+                            <button class="bet-btn" data-color="black" data-multiplier="2">Black (2x)</button>
+                            <button class="bet-btn" data-color="green" data-multiplier="10">Green (10x)</button>
+                        </div>
+
+                        <div class="bet-amount">
+                            <label for="bet-input">Bet Amount: $</label>
+                            <input type="number" id="bet-input" min="1" max="100" value="10">
+                        </div>
+
+                        <div class="quick-bets">
+                            <button class="quick-bet-btn" data-action="plus10">+$10</button>
+                            <button class="quick-bet-btn" data-action="double">x2</button>
+                            <button class="quick-bet-btn" data-action="half">1/2 Bank</button>
+                            <button class="quick-bet-btn" data-action="allin">All In</button>
+                        </div>
+
+                        <div class="button-group">
+                            <button id="spin-btn" class="spin-btn">SPIN!</button>
+                            <button id="undo-btn" class="spin-btn undo-btn">↶ Undo</button>
+                        </div>
+
+                        <div class="button-group checkpoint-tools">
+                            <button id="restart-run-btn" class="spin-btn restart-btn">Restart Run</button>
+                        </div>
+
+                        <div id="checkpoint-status" class="checkpoint-status">Next checkpoint: $1,000</div>
+
+                        <div class="lucky-meter">
+                            <div class="lucky-meter-head">
+                                <span>Lucky Spin</span>
+                                <span id="lucky-meter-label">0/5</span>
+                            </div>
+                            <div class="lucky-meter-track">
+                                <div id="lucky-meter-fill" class="lucky-meter-fill"></div>
+                            </div>
+                        </div>
+
+                        <div id="combo-status" class="combo-status">Combo: x1.00</div>
+                    </div>
+
+                    <div class="result" id="result"></div>
+                </div>
+
+                <div class="power-ups-section">
+                    <h3>Power-Ups</h3>
+                    <div id="power-ups" class="power-ups-container"></div>
+                    <div id="ready-power-up" class="ready-power-up">No queued power-up.</div>
+                    <div id="active-power-down" class="ready-power-down">No active power-down.</div>
+                </div>
+            </div>
+
+            <div class="right-panel">
+                <div class="daily-challenges">
+                    <h3>📋 Daily Challenges</h3>
+                    <div id="challenges" class="challenges-list"></div>
+                </div>
+
+                <div class="betting-history">
+                    <h3>📊 Betting History</h3>
+                    <div id="history" class="history-list"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="stats">
+            <div class="stat">Games Played: <span id="gamesPlayed">0</span></div>
+            <div class="stat">Top Score: $<span id="topScore">100</span></div>
+            <div class="stat">Wins: <span id="wins">0</span></div>
+            <div class="stat">Losses: <span id="losses">0</span></div>
+            <div class="stat">Win Streak: <span id="streak">0</span></div>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+    <div id="toast-container" class="toast-container"></div>
+</body>
+</html>

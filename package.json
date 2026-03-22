@@ -1,0 +1,37 @@
+{
+  "name": "lucky-roulette",
+  "version": "0.1.0",
+  "description": "A simple yet addictive luck-based roulette game",
+  "main": "electron-main.js",
+  "scripts": {
+    "start": "electron .",
+    "desktop": "electron .",
+    "dist": "electron-builder"
+  },
+  "devDependencies": {
+    "electron": "^26.0.0",
+    "electron-builder": "^24.6.0"
+  },
+  "author": "Your Name <you@example.com>",
+  "homepage": "https://example.com",
+  "build": {
+    "appId": "com.luckyroulette.app",
+    "productName": "Lucky Roulette",
+    "files": [
+      "**/*"
+    ],
+    "directories": {
+      "output": "dist"
+    },
+    "linux": {
+      "target": ["AppImage","deb"],
+      "category": "Game"
+    },
+    "mac": {
+      "target": ["dmg"]
+    },
+    "win": {
+      "target": ["nsis"]
+    }
+  }
+}

@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Lucky Roulette
+Comment=A simple yet addictive luck-based roulette game
+Exec=/home/evren-bartlett/Documents/roulette_game/launch.sh
+Icon=/home/evren-bartlett/Documents/roulette_game/icon.png
+Terminal=false
+Categories=Game;
