@@ -33,18 +33,102 @@ Earn power-ups every 3 consecutive wins in a row! Use them strategically to impr
 - **Black**: 45% chance, 2x payout  
 - **Green**: 10% chance, 10x payout
 
+## Install (macOS, Linux, Windows)
+
+### 1) Clone the repository
+
+```bash
+git clone https://github.com/Evren12346/roulette_game.git
+cd roulette_game
+```
+
+### 2) Install prerequisites
+
+#### macOS
+
+Install Node.js (includes npm):
+
+```bash
+brew install node
+```
+
+Verify:
+
+```bash
+node -v
+npm -v
+```
+
+#### Linux (Ubuntu/Debian)
+
+Install Node.js and npm:
+
+```bash
+sudo apt update
+sudo apt install -y nodejs npm
+```
+
+Verify:
+
+```bash
+node -v
+npm -v
+```
+
+#### Windows (PowerShell)
+
+Install Node.js using winget:
+
+```powershell
+winget install OpenJS.NodeJS.LTS
+```
+
+Then open a new terminal and verify:
+
+```powershell
+node -v
+npm -v
+```
+
+### 3) Install project dependencies
+
+```bash
+npm install
+```
+
+### 4) Start the game (desktop app)
+
+```bash
+npm start
+```
+
+## Run as Browser Version (optional)
+
+If you prefer running the static web version in a browser, use a local server.
+
+### macOS / Linux
+
+```bash
+python3 -m http.server 8000
+```
+
+### Windows (PowerShell)
+
+```powershell
+py -m http.server 8000
+```
+
+Open: http://localhost:8000
+
 ## Running the Game
 
 ### As Desktop App (Recommended)
 ```bash
-cd roulette_game
-npm install
 npm start
 ```
 
 ### As Web App
 ```bash
-cd roulette_game
 python3 -m http.server 8000
 ```
 Then open http://localhost:8000 in your browser
