@@ -475,7 +475,7 @@ class RouletteGame {
             else if (rand < boundaries[1]) color = 'black';
             else color = 'green';
         } else {
-            boundaries = [0.45, 0.9];
+            boundaries = [0.445, 0.89];
             if (rand < boundaries[0]) color = 'red';
             else if (rand < boundaries[1]) color = 'black';
             else color = 'green';
@@ -696,8 +696,8 @@ class RouletteGame {
         }
 
         const rand = Math.random();
-        if (rand < 0.45) return 'red';
-        if (rand < 0.9) return 'black';
+        if (rand < 0.445) return 'red';
+        if (rand < 0.89) return 'black';
         return 'green';
     }
 

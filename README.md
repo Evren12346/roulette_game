@@ -29,9 +29,9 @@ Earn power-ups every 3 consecutive wins in a row! Use them strategically to impr
 4. **Watch & Win**: The wheel spins and lands on a color - match your bet to win!
 
 ## Odds
-- **Red**: 45% chance, 2x payout
-- **Black**: 45% chance, 2x payout  
-- **Green**: 10% chance, 10x payout
+- **Red**: 44.5% chance, 2x payout
+- **Black**: 44.5% chance, 2x payout  
+- **Green**: 11% chance, 10x payout
 
 ## Install (macOS, Linux, Windows)
 
