@@ -442,6 +442,27 @@ h1 {
     animation: spin 4s cubic-bezier(0.25, 0.1, 0.25, 1);
 }
 
+.wheel-sweep {
+    position: absolute;
+    inset: 2%;
+    border-radius: 50%;
+    background: conic-gradient(
+        from 0deg,
+        transparent 0deg 322deg,
+        rgba(255, 246, 212, 0.06) 322deg 336deg,
+        rgba(255, 246, 212, 0.78) 336deg 348deg,
+        rgba(255, 246, 212, 0.12) 348deg 360deg
+    );
+    mix-blend-mode: screen;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.wheel.spinning .wheel-sweep {
+    opacity: 0.55;
+    animation: wheel-sweep-spin 0.85s linear infinite;
+}
+
 .wheel-center {
     position: absolute;
     top: 50%;
@@ -481,6 +502,15 @@ h1 {
     to { transform: rotate(1440deg); }
 }
 
+@keyframes wheel-sweep-spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
 @keyframes wheel-center-glow {
     0%,
     100% {
@@ -495,6 +525,10 @@ h1 {
 
 @media (prefers-reduced-motion: reduce) {
     .wheel-center {
+        animation: none;
+    }
+
+    .wheel.spinning .wheel-sweep {
         animation: none;
     }
 }
