@@ -2,6 +2,21 @@
 
 A simple yet addictive luck-based roulette game with a dark, modern interface.
 
+## Standard Run (Local Workspace)
+
+From this folder:
+
+```bash
+npm install
+./launch.sh
+```
+
+Manual desktop launch equivalent:
+
+```bash
+npm run desktop
+```
+
 ## Features
 
 - **Simple Gameplay**: Bet on Red, Black, or Green with different multipliers
@@ -102,7 +117,7 @@ npm install
 npm start
 ```
 
-## Run as Browser Version (optional)
+## Browser Fallback
 
 If you prefer running the static web version in a browser, use a local server.
 
@@ -120,7 +135,7 @@ py -m http.server 8000
 
 Open: http://localhost:8000
 
-## Running the Game
+## Manual Run Commands
 
 ### As Desktop App (Recommended)
 ```bash
